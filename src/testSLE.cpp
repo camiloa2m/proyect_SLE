@@ -21,13 +21,15 @@ int main(){
 		}
 		cout <<endl;
 	}
+	matrix B(3,4);
 
-	for (int i = 0; i<A.getM(); i++){
-		for (int j = 0; j<A.getN(); j++){
-			cout<< A.getNum(i,j)<< " ";
+	for (int i = 0; i<(A*0.5).getM(); i++){
+		for (int j = 0; j<(A*0.5).getN(); j++){
+			cout<< (A*0.5).getNum(i,j)<< " ";
 		}
 		cout <<endl;
 	}
+
 	return 0;
 }
 //C:\Users\Camilo_aM\eclipse-workspace\proyectoAlgort\data.txt

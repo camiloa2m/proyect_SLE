@@ -23,17 +23,29 @@ public:
 	int getN(); //da el numero de columnas
 	double getNum(int i, int j); //da el numero en la posicion ij
 	void setNum(int i, int j, double val); //cambia el numero en la posicion ij
-	int rank();
 
+	int rank();//rango de la matriz
+	double det(); //determinate de la matriz
 	matrix ident(); //Matriz identidad asociada
-	matrix inverse();
-	matrix concatenate(std::vector<std::vector<double>> C);
-	std::vector<std::vector<double>> rref();
+	matrix inverse(); //da la matriz inversa
+	matrix transpose(); //da la matriz transpuesta
+	matrix concatenate(std::vector<std::vector<double>> C); //concatena con una matriz
+	matrix concatenate(std::vector<double> C); //concatena con un vector
+	matrix rref(); // da la matriz escalonada reducida por reglones
 
-	std::vector<std::vector<double>> solwithInverse();
-	std::vector<std::vector<double>> solGaussJordan();
 
+	std::vector<double> solwithInverse();
+	std::vector<std::vector<double>> solGaussJordan();// muestra todas las soluciones
+	factLU();//
+	iter_Richardson()//Metodo de Richardson
+	iter_Jacobi()//Metodo de Jacobi
+	iter_GaussSeidel//Metodo de Gauss-Seidel
+
+	matrix & operator=(matrix & a);
 	matrix operator+(matrix a);
+	matrix operator-(matrix a);
+	matrix operator*(double a);
+	matrix operator*(matrix a);
 
 };
 

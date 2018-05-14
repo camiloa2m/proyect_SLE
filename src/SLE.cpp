@@ -125,7 +125,7 @@ matrix matrix::ident(){
 
 
 
-vector<vector<double>> matrix::rref(){
+martrix matrix::rref(){// falta arreglarlo para clase matrix
 	int min= m <= n? m : n;
 	//hace ceros bajo el pivote en todas las columnas que lo permiten
 	for(int k = 0;k<min ;++k){//k = menor numero entre filas y columnas
@@ -171,14 +171,70 @@ vector<vector<double>> matrix::rref(){
 			}
 		}
 	}
+
 	return A;
 }
 
-/*matrix matrix::operator+(matrix a){
+/*
+matrix & matrix::operator=(matrix & a){
+	if(a.getM() == this->m && a.getN()== this->n){
+		for (int i = 0; i<m; i++){
+			for (int j = 0; j<n; j++){
+				this->A[i][j] = a.getNum(i,j);
+			}
+		}
+		return *this;
+	} else {
+		cerr << "No son del mismo tamaño";
+	}
+}*/
+matrix matrix::operator+(matrix a){
+	if(a.getM() == m && a.getN()== n){
+		matrix B(a.getM(),a.getN());
+		for (int i = 0; i<m; i++){
+			for (int j = 0; j<n; j++){
+				double k = A[i][j]+a.getNum(i,j);
+				B.setNum(i,j,k);
+			}
+		}
+		return B;
+	}
+	cerr << "No se pueden sumar";
+}
+matrix matrix::operator-(matrix a){
+	if(a.getM() == m && a.getN()== n){
+		matrix B(a.getM(),a.getN());
+		for (int i = 0; i<m; i++){
+			for (int j = 0; j<n; j++){
+				double k = A[i][j]-a.getNum(i,j);
+				B.setNum(i,j,k);
+			}
+		}
+		return B;
+	}
+	cerr << "No se pueden restar";
+}
+matrix matrix::operator*(double a){
+	matrix B(m,n);
 	for (int i = 0; i<m; i++){
 		for (int j = 0; j<n; j++){
-			A[i][j]+=a[i][j];
+			double k = A[i][j]*a;
+			B.setNum(i,j,k);
 		}
 	}
-	return matrix;
-}*/
+	return B;
+}
+matrix matrix::operator*(matrix a){//-->>> falta hacerlo
+	if(n == a.getM()){
+		matrix B(m,a.getN());
+		/*for (int i = 0; i<n; i++){
+			for (int j = 0; j<n; j++){
+				double k = A[i][j]-a.getNum(i,j);
+				B.setNum(i,j,k);
+			}
+		}*/
+		return B;
+	}
+	cerr << "No se pueden multiplicar";
+}
+
