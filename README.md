@@ -6,3 +6,5 @@ Desarrollar una librería de métodos numéricos para resolver sistemas de ecuac
 Lee matrices en un .txt si:
 -Los valores de las filas esta separados por un espacio y al final de la fila no hay espacios
 -Luego de la última fila no debe haber saltos de linea
+
+En el documento ejemplo_formato.txt se muestra un ejemplo del formato de matriz que se puede leer.
