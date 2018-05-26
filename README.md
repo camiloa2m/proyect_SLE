@@ -5,9 +5,10 @@ Desarrollar una librería de métodos numéricos para resolver sistemas de ecuac
 
 Lee matrices en un .txt si:
 -Los valores de las filas esta separados por un espacio y al final de la fila no hay espacios
--Luego de la �ltima fila no debe haber saltos de linea
+-Luego de la última fila no debe haber saltos de linea
 
 ej:
+
 0.8147 0.1576 0.6557 0.7060 0.4387 0.2760 0.7513 0.8407 0.3517 0.0759
 0.9058 0.9706 0.0357 0.0318 0.3816 0.6797 0.2551 0.2543 0.8308 0.0540
 0.1270 0.9572 0.8491 0.2769 0.7655 0.6551 0.5060 0.8143 0.5853 0.5308
