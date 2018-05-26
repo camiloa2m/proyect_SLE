@@ -18,9 +18,6 @@ private:
 	void printVector(std::vector<double> vec);
 
 
-
-
-
 public:
 	matrix(); //matriz identidad de tamaÃ±o 3*3
 	matrix(int n); //matriz identidad de tamaÃ±o n*n
@@ -48,8 +45,8 @@ public:
 	std::vector<double>SolvGaussJordan();// muestra todas las soluciones
 	std::vector<double> solwithLU();
 	std::vector<matrix> factLU();//factoriza en matriz L (Lower) y matriz U(upper) matrices triangulares
-
-
+	void testSol(std::vector<double> x);//Resive el vector solucion como parametro.
+	//Calcula Norma(1) de Ax=b, verifica solucion si Norma(1) es muy peque�o. ej: 1.77636e-015
 
 	matrix & operator=(matrix & a);
 	matrix operator+(matrix a);
@@ -58,8 +55,8 @@ public:
 	matrix operator*(matrix a);
 	bool operator==(matrix a);
 	bool operator!=(matrix a);
+	std::vector<double> operator*(std::vector<double> a);
 
-	//double operator [](int i, int j);
 
 };
 

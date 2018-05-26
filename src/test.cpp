@@ -4,6 +4,8 @@ using namespace std;
 int main(){
 	std::vector<std::vector<double> > mat={{2, 3}, {6,7}};
 	std::vector<std::vector<double> > mat2={{7, 8}, {-1,3}};
+	std::vector <std::vector<double>> matri = {{1,2,-1,2},{-4,8,-6,8},{-3,3,6,4}};
+	matrix A(matri);
 	//matrix p (true);
 	matrix h(mat);
 	//matrix k(mat2);
@@ -24,8 +26,8 @@ int main(){
 			for(int j=0;j<p.getN();j++){
 				cout << p.getNum(i,j)<<"     ";
 			}
-			cout<<endl;*/
-		}
+			cout<<endl;
+		}*/
 	//cout<<"---------------------------------------"<<endl;
 	//vector<double> y=p.SolvGaussJordan();
 	// vector<double> t=p.solwithLU();   // Para leerLU
@@ -35,6 +37,11 @@ int main(){
 		std::cout<< y[i]<<"  ";  //leer 2
 	}
 	std::cout<<std::endl;*/
+
+	//verficar solucion
+	vector<double> b;
+	b = A.solwithLU();
+	A.testSol(b);
 
 
 

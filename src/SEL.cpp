@@ -457,6 +457,41 @@ std::vector<double> matrix::solwithLU(){
 	//throw std::underflow_error("La matriz de coeficientes no es cuadrada!!");
 }
 
+void matrix::testSol(std::vector<double> x){
+	//Saca el vector b de la matriz aumentada
+	std::vector<double> b;
+	for(int i=0;i<m;i++){
+		b.push_back(A[i][n-1]);
+	}
+	//Saca la matriz de coeficientes de la matriz aumentada
+	matrix B(m,n-1);
+	for(int i=0;i<m;i++){
+		for(int j=0;j<n-1;j++){
+			B.setNum(i,j,A[i][j]);
+		}
+	}
+
+	//Calcula el vector b usando B*x=b
+	//t=b
+	std::vector<double> t;
+	t=B*x;
+
+	//Calcula v = B*x-b
+	std::vector<double> v;
+	for(int i=0;i<b.size();i++){
+		double x= t[i]-b[i];
+		v.push_back(x);
+	}
+
+	//Calcula la norma1 de v
+	double norma=0;
+	for(int i=0;i<v.size();i++){
+		norma += std::abs(v[i]);
+	}
+
+	std::cout << "Norma(1) de Ax-b = "<< norma << std::endl;
+}
+
 matrix & matrix::operator=(matrix & a){ //Define una matriz a traves de la igualdad
 	if(a.getM() == this->m && a.getN()== this->n){
 		for (int i = 0; i<m; i++){
@@ -545,6 +580,19 @@ matrix matrix::operator*(matrix a){
 	}
 	throw std::underflow_error("Las matrices no se pueden multiplicar");
 }
-
+std::vector<double> matrix::operator*(std::vector<double> a){
+	if(n == a.size()){
+		std::vector<double> b;
+		for (int i = 0; i<m; i++){
+			double t=0;
+			for (int j = 0; j<n; j++){
+				double k = A[i][j]*a[j];
+				t+=k;
+			}
+			b.push_back(t);
+		}
+		return b;
+	}
+}
 
 
